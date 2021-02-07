@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Caudex&display=swap');
+* {
+  font-family: 'Caudex';
+  margin:0;
+  padding:0;
+}
+
+.title {
+  margin: 4em;
+  
+}
+h1 {
+  /* font-family: 'Caudex'; */
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 4em;
+
+}
+h3 {
+  /* font-family: 'Caudex'; */
+  text-align: center;
+  font-size: 2em;
+}
+.image img{
+  width: 100%;
+  margin-top: 2em;
+  color:#B0665D;
+}
+
+.image figcaption{
+  /* font-family: 'Caudex'; */
+  color:#B0665D;
+  width: 100%;
+  text-align: center;
+}
+
+.content {
+  /* font-family: 'Caudex'; */
+  width :60%;
+  margin: auto;
+  
+}
+
+.content p {
+  margin: 2em;
+}
