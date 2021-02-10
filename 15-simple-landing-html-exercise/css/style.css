@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* *{
+  box-sizing: border-box;
+} */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin:0;
+  padding:0;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+
+}
+.container {
+  display:flex;
+  flex-direction: column;
+  width: 80vw;
+  align-items: center;
+  justify-content: center;
+
+
+
+}
+
+                                      /* HOME SECTION */
+.home {
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.home img {
+  position: absolute;
+  overflow: hidden;
+  top:0;
+  right:-10%;
+  /* top:0;
+  bottom:0;
+  left: 0;
+  right:-10%; */
+
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+
+
+  
+  
+}
+nav ul li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+  margin:3em 0 0 2em;
+
+}
+
+nav ul li::after {
+  content: '';
+  display: block;
+  background-color: #fff;
+  border-bottom: 2px solid #00ff9a;
+  width: 0;
+  position: absolute;
+  bottom:-10px;
+  left:0;
+
+}
+nav ul li:hover:after {
+  padding: 0;
+  width: 50%;
+  transition: .3s;
+}
+nav ul li a{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  
+}
+
+.main_content{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  transform: translateY(-10%);
+
+}
+
+.main_content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.main_content h2{
+ 
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: .5rem;
+}
+                                /* WHY SECTION */
+
+
+.why{
+  position: relative;
+  padding: 6rem 0;
+}
+.whyContent {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+  justify-content: space-between;
+  position: relative;
+
+}
+
+.whyContent:last-child {
+  flex-direction: row-reverse;
+}
+
+.whyContent .whyImage {
+  position: relative;
+  width: 40vw;
+  height:40vw;
+  overflow: hidden;
+  
+}
+.whyContent .whyImage img {
+  width: 100%;
+  height:100%;
+}
+
+
+.whyImage .overlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.8);
+  height:100%;
+  width: 100%;
+}
+.whyHtml::after {
+  content: "HTML5";
+  position: absolute;
+  font-size: 8rem;
+  font-weight: 700;
+  color: #fff;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+
+}
+.whyCss::after {
+  content: "CSS";
+  position: absolute;
+  font-size: 8rem;
+  font-weight: 700;
+  color: #fff;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.whyContent .whyText {
+  position: relative;
+  width: 35vw;
+}
+
+.whyText h2 {
+  color: #ff0000;
+  font-size: 4rem;
+  font-weight: 700;
+}
+.whyText p{
+  font-size: 2rem;
+  font-weight:300;
+}
+
+                                /* LEARN SECTION */
+
+.learn {
+  display: flex;
+  justify-content: center;
+  background-color: #F2F2F2;
+  padding: 4rem 0;
+}
+.learn .container {
+  display: flex;
+  align-items: center;
+  
+}
+
+.learn .container h2, .coding .container h2 {
+  font-size: 3.375rem;
+  margin:0;
+}
+.learn .container>h3, .coding .container>h3{
+  font-size: 1.75rem;
+  color:#5D5D5D;
+}
+.learnList{
+  margin:0 3rem;
+  padding:0;
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+
+
+}
+
+.learnList li{
+  padding:1rem;
+  margin:1.5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.learnList li img{
+ overflow: hidden;
+ flex-grow: 1;
+
+}
+.learnList li h3 {
+  margin-bottom: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+.learnList li p{
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+ 
+}
+
+                                /* ANIMAL IMAGES SECTION*/
+.coding .container{
+  align-items: center;
+}
+/*h1 and h3 title styling in LEARN SECTION*/
+
+.animalImages {
+  width:80%;
+  display: flex;
+  flex-wrap:wrap;
+  position: relative;
+  list-style: none;
+  
+
+  
+}
+.animalImages li {
+  height:33%;
+}
+
+.animalImages li img{
+  height: 100%;
+  width: 100%;
+}
+
+
