@@ -8,6 +8,15 @@ let count = 10; // DO NOT TOUCH THIS LINE :)
  * "Remaining: X" where X is a number. When {count} will
  * be equal to 0 log message "Go!"
  */
+function countdown() {
+  while (count>0) {
+      
+      console.log("Remaining: "+count)
+      count--;
+      
+    }
+      console.log("Go!");
+  };
 
 // ==========================
 
@@ -18,7 +27,16 @@ let count = 10; // DO NOT TOUCH THIS LINE :)
  * be the same as {countdown} the only difference is
  * that it takes any number as a param and count from that point
  */
-
+function countdownWithParam(parameter) {
+  let count = parameter;
+  while (count>0) {
+      
+    console.log("Remaining: "+count)
+    count--;
+    
+  }
+    console.log("Go!");
+}
 // ==========================
 let ruler = [];
 /**
@@ -29,6 +47,15 @@ let ruler = [];
  * The result of calling {rulerConstructor} is that {ruler}
  * will be [0,10,20,30,40,50,60,70,80,90,100]
  */
+function rulerConstructor() {
+  let i=0;
+  while (i <11) {
+   
+    ruler.push(i*10);
+    i++
+  }
+  return ruler
+}
 
 // ==========================
 
@@ -39,3 +66,15 @@ let ruler = [];
  * "Neighbour" to the array until you have at least 5 guests.
  * Without using an if statement!
  */
+
+
+
+function partyPadding(array) {
+
+  let i = array.length;
+  while (i < 5 ){
+    array.push("Neighbour");
+    i++;
+  }
+  return array;
+}
