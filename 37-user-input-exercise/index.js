@@ -1,10 +1,12 @@
 // install and  import "readline-sync" npm package before you do exercises
+const readlineSync = require('readline-sync');
 
 /**
  * Exercise 1
  *
  * ask user for a name and assign a response to variable {name}
  */
+name = readlineSync.question("What is your name? ")
 
 //===== DO NOT TOUCH THIS BLOCK =====
 console.log(`Hi ${name}!`);
@@ -23,6 +25,7 @@ console.log("=====================");
  * NOTE: if the user will respond with wrong value, ask again, until
  * you get correct symbol
  */
+selectedSymbol = readlineSync.keyIn("Please pick a symbol +,-,*,/ in reference to your desired equation: ",{limit:'/+-*',limitMessage:'Wrong Value! please pick out of +,-,*,/'});
 
 /**
  * Exercise 3
@@ -32,7 +35,7 @@ console.log("=====================");
  * NOTE: if the user will respond with wrong value, ask again, until
  * you get a number
  */
-
+number1 = readlineSync.questionInt('Please pick your first Number in your equation ')
 /**
  * Exercise 4
  *
@@ -41,7 +44,7 @@ console.log("=====================");
  * NOTE: if the user will respond with wrong value, ask again, until
  * you get a number
  */
-
+number2 = readlineSync.questionInt('Please pick your Second Number in your equation ')
 /**
  * Exercise 5
  *
@@ -50,6 +53,7 @@ console.log("=====================");
  *
  * show the result to the user
  */
+let result = eval(number1+selectedSymbol+number2);
 
 console.log("=====================");
 console.log(`Here you go, the result is ${result}`);
