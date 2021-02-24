@@ -15,6 +15,14 @@
  * passed each element and the index.
  *
  */
+function forEach(array, callback) {
+  
+  for (let i=0;i<array.length;i++) {
+    callback(array[i],i);
+  }
+  
+}
+
 
 /**
  * Exercise #2
@@ -29,7 +37,15 @@
  * time the callback was invoked.
  *
  */
+function map(array, callback) {
+  let mappedArray =[];
+  for (let i=0;i<array.length;i++) {
+    let result = callback(array[i],i);
+    mappedArray.push(result);
+  }
+  return mappedArray;
 
+}
 /**
  * Exercise #3
  *
@@ -43,7 +59,17 @@
  * callback returned a truthy value.
  *
  */
-
+function filter(array,callback) {
+  let filteredArray =[];
+  for (let i=0;i<array.length;i++) {
+    let result = callback(array[i],i);
+      if(result == true){
+        filteredArray.push(array[i]);
+       }
+  }
+  return filteredArray;
+ 
+}
 /**
  * Exercise #4
  *
@@ -57,6 +83,18 @@
  * truthy value.
  *
  */
+function find(array,callback) {
+  let found =[];
+  for (let i=0;i<array.length;i++) {
+    let result = callback(array[i],i);
+      if(result == true){
+        found.push(array[i]);
+        break;
+       }
+  }
+  return found[0];
+ 
+}
 
 /**
  * Exercise #5
@@ -71,7 +109,18 @@
  * callback returns a truthy value.
  *
  */
-
+function findIndex(array,callback) {
+  let foundIndex =[];
+  for (let i=0;i<array.length;i++) {
+    let result = callback(array[i],i);
+      if(result == true){
+        foundIndex.push(i);
+        break;
+       }
+  }
+  return foundIndex[0];
+ 
+}
 /**
  * Exercise #6
  *
@@ -86,7 +135,40 @@
  * a truthy value.
  *
  */
+// function every(array,callback) {
+//   let everyTrue =[];
+//   for (let i=0;i<array.length;i++) {
+//     let result = callback(array[i],i);
+//     console.log(result);
+//      if(!result) {
+//       break;
+//       return false;
+      
+//      } else {
+//       everyTrue.push(result) 
+//      }
+     
+//   }
+//   console.log(everyTrue);
+//   if(everyTrue.length == array.length) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+ 
+// }
+function every(array,callback) {
 
+  for (let i=0;i<array.length;i++) {
+    let result = callback(array[i],i);
+     if(!result) {
+      return false;
+     }
+     
+  } 
+  return true;
+ 
+}
 /**
  * Exercise #7
  *
@@ -101,7 +183,14 @@
  * a truthy value.
  *
  */
-
+function some(array,callback) {
+  for (let i=0;i<array.length;i++) {
+    let result = callback(array[i],i);
+    if(result === true) {
+      return true;
+    }
+  }
+}
 /**
  * Exercise #8
  *
@@ -123,3 +212,17 @@
  * value.
  *
  */
+function reduce(array, callback, initialValue=0) {
+  
+  let currentValue = initialValue;
+  for(i=0;i<array.length;i++) {
+   
+    currentValue = callback(currentValue,array[i],i);
+    
+
+
+  }
+
+  return currentValue;
+  
+};

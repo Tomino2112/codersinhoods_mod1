@@ -1,7 +1,3 @@
-global.console = {
-  log: jest.fn()
-};
-
 const numbers = [0, 1, 2, 3, 4, 12, 13, 20];
 const strings = ["London", "Manchester", "Chicago", "Detroit", "Mumbai"];
 
@@ -15,7 +11,8 @@ const multipleOfSix = jest.fn(number => number > 0 && number % 6 === 0);
 const findCity = jest.fn(targetCity => jest.fn(city => targetCity === city));
 const everyOtherElement = jest.fn((el, i) => i % 2 === 0);
 
-const logArgs = jest.fn((el, i) => console.log(`el: ${el}, i: ${i}`));
+const returnUndefined = jest.fn((el, i) => undefined);
+const stringifyArgs = jest.fn((el, i) => `el: ${el}, i: ${i}`);
 
 beforeEach(() => {
   jest.clearAllMocks();
@@ -28,10 +25,10 @@ describe("forEach", () => {
   });
 
   test("forEach invokes callback with each element and index", () => {
-    forEach(numbers, logArgs);
-    expect(logArgs).toHaveBeenCalledTimes(numbers.length);
+    forEach(numbers, stringifyArgs);
+    expect(stringifyArgs).toHaveBeenCalledTimes(numbers.length);
     numbers.forEach((number, i) => {
-      expect(logArgs).toHaveBeenCalledWith(number, i);
+      expect(stringifyArgs).toHaveBeenCalledWith(number, i);
     });
   });
 });
@@ -43,10 +40,10 @@ describe("map", () => {
   });
 
   test("map invokes callback with each element and index", () => {
-    map(numbers, logArgs);
-    expect(logArgs).toHaveBeenCalledTimes(numbers.length);
+    map(numbers, stringifyArgs);
+    expect(stringifyArgs).toHaveBeenCalledTimes(numbers.length);
     numbers.forEach((number, i) => {
-      expect(logArgs).toHaveBeenCalledWith(number, i);
+      expect(stringifyArgs).toHaveBeenCalledWith(number, i);
     });
   });
 
@@ -72,10 +69,10 @@ describe("filter", () => {
   });
 
   test("filter invokes callback with each element and index", () => {
-    filter(numbers, logArgs);
-    expect(logArgs).toHaveBeenCalledTimes(numbers.length);
+    filter(numbers, stringifyArgs);
+    expect(stringifyArgs).toHaveBeenCalledTimes(numbers.length);
     numbers.forEach((number, i) => {
-      expect(logArgs).toHaveBeenCalledWith(number, i);
+      expect(stringifyArgs).toHaveBeenCalledWith(number, i);
     });
   });
 
@@ -97,10 +94,10 @@ describe("find", () => {
   });
 
   test("find invokes callback with each element and index", () => {
-    find(numbers, logArgs);
-    expect(logArgs).toHaveBeenCalledTimes(numbers.length);
+    find(numbers, stringifyArgs);
+    expect(stringifyArgs).toHaveBeenCalledTimes(numbers.length);
     numbers.forEach((number, i) => {
-      expect(logArgs).toHaveBeenCalledWith(number, i);
+      expect(stringifyArgs).toHaveBeenCalledWith(number, i);
     });
   });
 
@@ -123,10 +120,10 @@ describe("findIndex", () => {
   });
 
   test("findIndex invokes callback with each element and index", () => {
-    findIndex(numbers, logArgs);
-    expect(logArgs).toHaveBeenCalledTimes(numbers.length);
+    findIndex(numbers, stringifyArgs);
+    expect(stringifyArgs).toHaveBeenCalledTimes(numbers.length);
     numbers.forEach((number, i) => {
-      expect(logArgs).toHaveBeenCalledWith(number, i);
+      expect(stringifyArgs).toHaveBeenCalledWith(number, i);
     });
   });
 
@@ -149,9 +146,9 @@ describe("every", () => {
   });
 
   test("every invokes callback with each element and index", () => {
-    every(numbers, logArgs);
-    expect(logArgs).toHaveBeenCalledTimes(1);
-    expect(logArgs).toHaveBeenCalledWith(numbers[0], 0);
+    every(numbers, returnUndefined);
+    expect(returnUndefined).toHaveBeenCalledTimes(1);
+    expect(returnUndefined).toHaveBeenCalledWith(numbers[0], 0);
   });
 
   test("every returns a boolean representing that callback returned truthy for every element", () => {
@@ -174,10 +171,10 @@ describe("some", () => {
   });
 
   test("some invokes callback with each element and index", () => {
-    some(numbers, logArgs);
-    expect(logArgs).toHaveBeenCalledTimes(numbers.length);
+    some(numbers, stringifyArgs);
+    expect(stringifyArgs).toHaveBeenCalledTimes(numbers.length);
     numbers.forEach((number, i) => {
-      expect(logArgs).toHaveBeenCalledWith(number, i);
+      expect(stringifyArgs).toHaveBeenCalledWith(number, i);
     });
   });
 
@@ -201,10 +198,10 @@ describe("reduce", () => {
   });
 
   test("reduce invokes callback with accumulator value, each element and index", () => {
-    reduce(numbers, logArgs, 0);
-    expect(logArgs).toHaveBeenCalledTimes(numbers.length);
+    reduce(numbers, returnUndefined, 0);
+    expect(returnUndefined).toHaveBeenCalledTimes(numbers.length);
     numbers.forEach((number, i) => {
-      expect(logArgs).toHaveBeenCalledWith(i === 0 ? 0 : undefined, number, i);
+      expect(returnUndefined).toHaveBeenCalledWith(i === 0 ? 0 : undefined, number, i);
     });
   });
 
