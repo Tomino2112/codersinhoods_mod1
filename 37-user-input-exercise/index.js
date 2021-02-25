@@ -25,8 +25,20 @@ console.log("=====================");
  * NOTE: if the user will respond with wrong value, ask again, until
  * you get correct symbol
  */
-selectedSymbol = readlineSync.keyIn("Please pick a symbol +,-,*,/ in reference to your desired equation: ",{limit:'/+-*',limitMessage:'Wrong Value! please pick out of +,-,*,/'});
+// selectedSymbol = readlineSync.keyIn("Please pick a symbol +,-,*,/ in reference to your desired equation: ",{limit:'/+-*',limitMessage:'Wrong Value! please pick out of +,-,*,/'});
+const chooseSymbol = () => {
+  const mySymbol = readlineSync.question("Please pick a symbol +,-,*,/ in reference to your desired equation: ");
+  if(mySymbol === '+' || mySymbol == '-' || mySymbol == '/ '|| mySymbol== '*' ) {
+    
+    return mySymbol;
 
+  }
+  else {
+    console.log("please enter a valid operator")
+    chooseSymbol();
+  }
+}
+const selectedSymbol = chooseSymbol();
 /**
  * Exercise 3
  *
@@ -35,7 +47,20 @@ selectedSymbol = readlineSync.keyIn("Please pick a symbol +,-,*,/ in reference t
  * NOTE: if the user will respond with wrong value, ask again, until
  * you get a number
  */
-number1 = readlineSync.questionInt('Please pick your first Number in your equation ')
+// number1 = readlineSync.questionInt('Please pick your first Number in your equation ')
+const chooseNumber = (whichNumber) => {
+  const chosenNumber = parseInt(readlineSync.question("Please choose your "+ whichNumber+ " number: "));
+    
+  if(Number.isInteger(chosenNumber)) {
+    return chosenNumber;
+    
+  }
+  else {
+    console.log("Please enter a valid number")
+    chooseNumber(whichNumber);
+  }
+}
+const number1 = chooseNumber("first");
 /**
  * Exercise 4
  *
@@ -44,7 +69,8 @@ number1 = readlineSync.questionInt('Please pick your first Number in your equati
  * NOTE: if the user will respond with wrong value, ask again, until
  * you get a number
  */
-number2 = readlineSync.questionInt('Please pick your Second Number in your equation ')
+// number2 = readlineSync.questionInt('Please pick your Second Number in your equation ')
+const number2 = chooseNumber("Second");
 /**
  * Exercise 5
  *
