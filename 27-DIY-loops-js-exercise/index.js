@@ -280,4 +280,4 @@ function multipliedEvenOddNumbers(numbers,type) {
   
 
 
-console.log(multipliedEvenOddNumbers([4,3,6,8,5,7]));
+console.log(multipliedEvenOddNumbers([4,3,6,8,5,7],"even"));
