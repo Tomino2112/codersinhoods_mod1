@@ -100,11 +100,11 @@ const fifthTest = document.querySelector('#test-5');
  * select all the elements which are siblings of an element
  * with the class "links" and assign it to a variable {nextElements}
  */
-const nextElements = () => {
+// const nextElements = () => {
+//   const allElements = [];
+//   const mainElement = document.querySelector('.links');
+//   allElements.push(mainElement.nextElementSibling.nodeName);
+//   return allElements;
 
-  const parent = document.querySelector('.links').parentElement;
-  return parent.children;
-
-
-
-}
+// }
+const nextElements = document.querySelectorAll('.links+*');
