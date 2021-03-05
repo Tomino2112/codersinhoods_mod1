@@ -8,19 +8,25 @@
  * create a function {setTitle} which takes a string as an argument
  * and displays it in the h1
  */
+const setTitle = (title) => document.querySelector('h1').innerText = title;
 
 /**
  * Exercise 2
  * create a function {appendToTitle} which takes a string as an argument
  * and appends it to existing h1 text
  */
-
+const appendToTitle = (title) => document.querySelector('h1').innerText += title;
+  // const h1Selector = document.querySelector('h1') ;
+  // h1Selector.append(title);
 /**
  * Exercise 3
  * create a function {prependToTitle} which takes a string as an argument
  * and prepends it to existing h1 element text
  */
-
+const prependToTitle = (title) => {
+  let h1Selector = document.querySelector('h1') ;
+  h1Selector.innerText = title + h1Selector.innerText;
+}
 /**
  * Exercise 4
  * create a function {setInnerHTMLForDiv} which takes a tag name and text as
@@ -28,13 +34,27 @@
  * text is displayed inside that element. The element should be the tag name
  * passed into the function
  */
-
+const setInnerHTMLForDiv = (tagName, text) => {
+  const div = document.querySelector('div');
+  const newTag = document.createElement(tagName);
+  newTag.innerHTML = text;
+  div.appendChild(newTag)
+ 
+  
+}
 /**
  * Exercise 5
  * create a function {addPtoDivWithText} which takes a string as an argument
  * and uses innerHTML to add a p tag containing the text into the div
  */
-
+const pushPtoDivWithText = (text) => {
+  const div = document.querySelector('div');
+  const newTag = document.createElement('p');
+  newTag.innerHTML = text;
+  div.appendChild(newTag)
+ 
+  
+}
 /**
  * Exercise 6
  *
@@ -42,7 +62,12 @@
  * as arguments and set it as a src and alt attributes values
  * for existing img
  */
+const setSrcToImage = (url,imageDescription) => {
+  const imageTag = document.querySelector('img');
+  imageTag.src = url;
+  imageTag.alt = imageDescription;
 
+}
 /**
  * Exercise 7
  *
@@ -53,21 +78,34 @@
  *
  * Also add an attribute that opens your page in a new tab
  */
+const setCodersInHoodsLink = (url, text) => {
+  const anchor = document.querySelector('a');
+  anchor.href = url;
+  anchor.innerText = text;
+  anchor.target = "_blank";
 
+}
 /**
  * Exercise 8
  *
  * create a function {disableResetBtn} which will disable button
  * with class "reset"
  */
-
+const disableResetBtn = () => document.querySelector('.reset').disabled = true;
 /**
  * Exercise 9
  *
  * create a function {disableBtns} which takes class name as an argument
  * and disable all buttons with this class name
  */
-
+const disableBtns = (btnClass) => {
+  if(btnClass.includes('.')){
+    btnClass;
+  } else {
+    btnClass = '.'+btnClass;
+  }
+  [...document.querySelectorAll(btnClass)].forEach(element => element.disabled = true);
+}
 /**
  * Exercise 10
  *
@@ -78,14 +116,30 @@
  * NOTE: We've added some CSS so when your classes are added,
  * you will see a difference
  */
+const addClassToLi = () => {
+  let listItems = [...document.querySelectorAll('.list .list_item')];
 
+  // listItems.forEach((li,i) => document.querySelector('.list_item').className = ".list_item_"+[i+1] )
+  
+  // listItems.forEach((li,i) => {
+  //   li.classList.replace('list_item',"list_item_"+[i+1]) 
+  // });
+
+  listItems.forEach((li,i) => {
+    li.classList.add("list_item_"+[i]);
+  });
+
+}
 /**
  * Exercise 11
  *
  *  create a function {removeListItemClass} which removes the class
  * "list_item" from all li elements with this class
  */
-
+const removeListItemClass = () => {
+  let listItems = [...document.querySelectorAll('.list_item')];
+  listItems.forEach(li => li.classList.remove('list_item'));
+}
 /**
  * Exercise 12
  *
@@ -93,7 +147,12 @@
  * a CSS selector. Use to selector to find an element, then add
  * the id to the element
  */
+const addId = (id, selector) => {
 
+  let allSelected = [...document.querySelectorAll(selector)];
+
+  allSelected.forEach(selected => selected.id = id);
+}
 /**
  * Exercise 13
  *
@@ -105,3 +164,11 @@
  * use the selector to find all the elements which match, then
  * set the CSS property to the value
  */
+const setStyles = (propName, propValue, selector) => {
+  let allSelected = [...document.querySelectorAll(selector)];
+
+  allSelected.forEach(selected => {
+
+    selected.style[propName] = propValue;
+  })
+}
