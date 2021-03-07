@@ -13,14 +13,14 @@ let counter = 0;
 const action = (symbol) => {
   const counterVal = document.querySelector('.counter_value')
 
-  if (symbol == '+') {
-    counter = (counter + step);
-    counterVal.innerText = parseInt(counter);
+  if (symbol === '+') {
+    counter = parseInt(counter + step);
+    counterVal.innerText = counter;
     return counter;
 
-  } else if (symbol == '-') {
-    counter = (counter - step);
-    counterVal.innerText = parseInt(counter);
+  } else if (symbol ==='-') {
+    counter = parseInt(counter - step);
+    counterVal.innerText = counter;
     return counter;
   }
 
@@ -82,16 +82,18 @@ decBtn.addEventListener("click", ()=> {
  *
  * NOTE: ".counter_value" should represent current state of counter
  */
- let interlID;
+
 
 const autoDec = document.querySelector("#auto_decrement");
+let InterID;
 
 autoDec.addEventListener("click", ()=> {
-  interID =
+  clearInterval(InterID);
+  InterID =
   setInterval(() => {
     action("-");
-    console.log(typeof counter + counter);
   }, 1000);
+  
 })
 /**
  * Exercise 6
@@ -103,11 +105,12 @@ autoDec.addEventListener("click", ()=> {
  */
  const autoInc = document.querySelector("#auto_increment");
  autoInc.addEventListener("click", ()=> {
-    interID =
-   setInterval(() => {
-     action("+");
-     console.log(typeof counter + counter);
-   }, 1000);
+    clearInterval(InterID);
+    InterID =
+    setInterval(() => {
+      action("+");
+    }, 1000);
+   
  })
 /**
  * Exercise 7
@@ -117,6 +120,9 @@ autoDec.addEventListener("click", ()=> {
  */
 const stopBtn = document.querySelector('#stop_auto');
 stopBtn.addEventListener("click",() => {
-  clearInterval(interID);
+  // autoInc.disabled = false;
+  // autoDec.disabled = false;
+  clearInterval(InterID);
+ 
   
 })
