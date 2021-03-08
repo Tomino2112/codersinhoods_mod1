@@ -155,7 +155,8 @@ describe("5. remove timer", () => {
 		const firstTimer = document.querySelector(".timers .timer_1");
 		const firstTimerCross = firstTimer.querySelector(".remove");
 		expect(Boolean(document.querySelector(".timers .timer_1"))).toBe(true);
-
+		expect(Boolean(document.querySelector(".timers .timer_2"))).toBe(true);
+		
 		fireEvent.click(firstTimerCross);
 		expect(Boolean(document.querySelector(".timers .timer_1"))).toBe(false);
 		expect(Boolean(document.querySelector(".timers .timer_2"))).toBe(true);
