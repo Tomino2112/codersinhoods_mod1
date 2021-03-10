@@ -4,19 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <title>Title</title>
   </head>
   <body>
-    <h1>Kitterest</h1>
+
     <div class="post">
+      
       <div class="img_wrapper">
-        <img src="" alt="" />
+        <img src="/codersinhoods_mod1/47-js-pinterest-simple/img/kitten.png" alt="" />
       </div>
-      <ul class="panel">
-        <li><img src="" alt="" /></li>
-        <li><img src="" alt="" /></li>
-        <li><img src="" alt="" /></li>
-      </ul>
+      <div class="actions">
+        <ul>
+          <li class="likeBtn"><img class="notLiked" src="./img/like_empty.png" alt=""></li>
+          <li class="commentBtn"><img src="./img/comment_empty.png" alt=""></li>
+        </ul>
+        
+
+      </div>
+      <div class="commentSection">
+      
+      
+        <p>Comments</p>
+        <div class="newComment hide">
+          <form action="">
+           <textarea name="comment" id="" cols="30" rows="7" placeholder="Type your comment here..."></textarea>
+            <div class="buttons">
+            <button class="cancel">Cancel</button>
+            <button class="submit" type="">Submit</button>
+            </div>
+          </form> 
+        </div>
+        <div class="commentWrap">
+      
+      </div>
+      
+     
     </div>
   </body>
   <script src="index.js"></script>

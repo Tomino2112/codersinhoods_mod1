@@ -1,0 +1,135 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  font-family: roboto;
+  max-width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin:0 auto;
+  background-color: #eee;
+}
+
+.post {
+  width:100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin:4rem auto;
+  border-radius: 2rem 2rem 0 0;
+  background-color: #fff;
+}
+                                      /* Headerimage */
+.post .img_wrapper {
+  position: relative;
+  min-width: 100%;
+}
+.post .img_wrapper img{
+  max-width: 100%;
+  border-radius: 2rem;;
+}
+                                          /* actions */
+.post .actions {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding:0 1rem;
+  
+
+}
+
+.post .actions ul{
+  position: relative;
+  padding:1rem;
+  display: flex;
+  list-style: none;
+}
+
+.post .actions ul li {
+  padding-right: 1rem;
+}
+
+
+                                      /* comment SECTION */
+.post .commentSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 90%;
+  margin: 0 auto;
+
+  border-top: #2E3A59 3px solid;
+}
+.post .commentSection p{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  color: gray;
+}
+
+
+                                                /* FORM  */
+
+.hide{
+  display: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+form textarea {
+  border: #C4C4C4 solid 2px;
+  border-radius: 1rem;
+  padding:1rem;
+  resize: none;
+}
+form textarea::placeholder{
+  color: #C4C4C4;
+}
+
+form .buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+}
+form .buttons button {
+  background-color: #fff;
+  padding: 0.5rem 2rem;
+  margin-left: 1rem;
+  border:none;
+  border-radius: .5rem;
+  color:#2E3A59;
+  font-weight: 700;
+
+
+}
+form .buttons .submit{
+  color: #fff;
+  background-color: #2E3A59;
+}
+
+
+                                        /* NEW COMMENTS  */
+.post .commentSection .commentWrap {
+  margin: 2rem 0;
+}
+.post .commentSection .commentWrap p {
+  border-bottom:solid 2px lightgray ;
+  font-weight: 300;
+  
+  
+}
+
+.post .commentSection .commentWrap .comment{
+  margin: 2rem 0;
+}
+
