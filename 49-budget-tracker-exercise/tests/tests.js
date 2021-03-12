@@ -105,15 +105,16 @@ describe("4. Budget limit", () => {
     fireEvent.input(firstDiv.querySelector("select"), {
       target: { value: "3" },
     });
-    fireEvent.input(secondDiv.querySelector("select"), {
-      target: { value: "4" },
-    });
     fireEvent.change(firstDiv.querySelector("select"), {
       target: { value: "3" },
+    });
+      fireEvent.input(secondDiv.querySelector("select"), {
+      target: { value: "4" },
     });
     fireEvent.change(secondDiv.querySelector("select"), {
       target: { value: "4" },
     });
+    
 
     expect(remainingBudgetSpan.innerHTML).toBe("£11.03");
   });

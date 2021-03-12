@@ -58,7 +58,7 @@ addCounterEl.addEventListener("click", ()=>{
   const timersQty = document.querySelectorAll(".timer").length
 
   if(timersQty <5){
-    timersCount++
+    timersCount++;
     const newTimer = createTimerEl(timersCount);
     timersContainerEl.appendChild(newTimer); 
 
