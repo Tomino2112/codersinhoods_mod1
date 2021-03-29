@@ -18,7 +18,8 @@ let timersCount = 0;
 const createTimerEl=(num)=>{
   const timerDiv = document.createElement("div");
   let counter = 0;
-  timerDiv.classList.add("timer", `timer_${num}`);
+  console.log(counter)
+  timerDiv.classList.add('timer', `timer_${num}`);
   timerDiv.innerHTML = `
     <div class="remove"></div>
   <h3>0 <span>00</span></h3>
@@ -38,9 +39,12 @@ const stopBtn = timerDiv.querySelector('.stop');
 const interval = setInterval(() => {
   const s = Math.floor(counter /100);
   const ms = counter % 100;
+  console.log(counter);
   timerText.innerHTML = `${s}<span>${ms}</span>`;
   counter++;
 }, 10);
+
+
 removeBtn.addEventListener("click", ()=>{
   clearInterval(interval);
   timerDiv.remove();

@@ -56,10 +56,10 @@ const addComment = () => {
   commentId = parseInt(commentStructure.id);
   commentStructure.classList.add("comment");
   commentStructure.innerHTML = `
-  <em> <h4>${userName}</h4>
-  <p>
-  ${commentContent}
-  </p></em>
+  <h4><i> ${userName}</i></h4>
+  <p><i> 
+  ${commentContent}</i>
+  </p>
   `;
   return commentStructure
 } 
