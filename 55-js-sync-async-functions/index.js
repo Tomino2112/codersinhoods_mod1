@@ -70,15 +70,7 @@ const asyncCookIngredient = ({name, time}) =>{
  * log the message "Soup is ready to serve"
  */
 
-// const asyncCookMeal = async (ingredientArray) =>{
 
-//     await ingredientArray.forEach(async ingredient =>{
-//       // const name = ingredient.name;
-//       // const time = ingredient.time
-//       await asyncCookIngredient({ingredient.name, ingredient.time});
-//     })
-//   console.log( "Soup is ready to serve");
-// }
 
 const asyncCookMeal = async (ingredientArray) => {
   await ingredientArray.forEach(async ingredient =>{
