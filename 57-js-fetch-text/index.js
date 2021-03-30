@@ -18,7 +18,23 @@ const input = document.querySelector("input");
  * string in {.result} element
  */
 
+const getResponse =(url) =>{
+  fetch(url)
+  .then((response)=> response.text())
+  .then((numberFact) => {result.innerText = numberFact})
+} 
+form.addEventListener('submit',(event)=>{
+  event.preventDefault();
+  if(input.value !== ''){
+    getResponse(input.value);
+  }
+  
+})
 
+input.addEventListener('focus', (event)=>{
+  result.innerText ='';
+  input.value = '';
+})
 /**
  * Description of the application:
  *
