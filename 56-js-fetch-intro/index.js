@@ -17,6 +17,42 @@ const input = document.querySelector("input");
  * in {result} element, otherwise render
  * `Request failed with status code: {errorCode}`
  */
+const getResponse = (url) =>{
+  const resultTag = document.createElement('a');
+  const errorTag = document.createElement('p');
+  fetch(url).then((response)=>{
+    if (response.ok && input.value !== ''){
+      result.classList.remove('error');
+      result.classList.add('success');
+      resultTag.href = url;
+      resultTag.target = '_blank';
+      resultTag.innerHTML = `Valid link! ${url}`;
+      result.appendChild(resultTag);
+      
+    } else {
+      result.classList.add('error');
+      result.classList.remove('success')
+      result.innerText = `Request failed with status code: ${response.status}`;
+      console.log(result);
+    }
+  })
+}
+
+input.addEventListener('focus', (event)=>{
+
+    input.placeholder = '';
+    input.value='';
+    result.innerText ='';
+})
+input.addEventListener('blur', (event)=>{
+    input.placeholder = 'Provide URL...';
+})
+form.addEventListener("submit", (event)=> {
+  event.preventDefault();
+  url = input.value;
+  getResponse(url);
+}
+)
 
 /**
  * Description of the application:
