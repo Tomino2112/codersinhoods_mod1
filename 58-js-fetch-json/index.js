@@ -16,6 +16,44 @@ const input = document.querySelector("input");
  * a URL as an argument and sends a GET request.
  * When you get a response, return an array of facts.
  */
+const fetchData = async (url = 'https://cat-fact.herokuapp.com/facts') =>{
+  const allData = await fetch(url)
+  .then((response) => response.json())
+  // console.log("alldata:",allData)
+  // const allFacts =  allData.map(factInfo =>  factInfo.text );
+  const allFacts = (Array.isArray(allData) ? allData : allData.all).map(factInfo => factInfo.text );
+  
+  return allFacts
+}
+
+const getThree = async() =>{
+  const onlyFacts = await fetchData('https://cat-fact.herokuapp.com/facts');
+  const threeFacts = [];
+
+  while (threeFacts.length < 3){
+    
+    const item = onlyFacts[Math.floor(Math.random()*onlyFacts.length)];
+    if(!threeFacts.includes(item)){
+      threeFacts.push(item);
+    }
+    
+  }
+
+  threeFacts.forEach(fact  => {
+    const newFact = document.createElement('li');
+    newFact.innerText = fact;
+    result.appendChild(newFact);
+  });
+}
+
+button.addEventListener('click', () => {
+
+  getThree();
+   
+
+
+
+})
 
 /**
  * Description of the application:
