@@ -20,7 +20,19 @@ const ingredients = [
  * {ingredient} object
  *
  */
+const asyncCookIngredient = (ingredient) =>{
+  
+  const myPromise = new Promise((resolve) =>{
+      setTimeout(() => {
+        resolve(ingredient)
+      }, ingredient.time);
+    
+  })
+  return myPromise
 
+  
+}
+// console.log(asyncCookIngredient(ingredients[0]));
 
 /**
  * Exercise 2
@@ -35,9 +47,38 @@ const ingredients = [
  * The value used to resolve the promise should be and object
  * containing an array of {ingredientNames} and the {totalTime}:
  *
- * {
- *  ingredientNames: ["carrot", "onion"],
- *  totalTime: 750
- * }
+ {
+  ingredientNames: ["carrot", "onion"],
+  totalTime: 750
+ }
  *
  */
+const asyncCookMeal = (ingredientArray) =>{
+  const anotherPromise = new Promise((resolve)=>{
+
+    const everything = {
+      ingredientNames: [],
+      totalTime: 0,
+    }
+    const maxtime = Math.max(...ingredientArray.map((i) => i.time));
+
+    ingredientArray.forEach(ingredient => {
+      
+      everything.ingredientNames.push(ingredient.name);
+      everything.totalTime+= ingredient.time;  
+      asyncCookIngredient(ingredient)
+
+    });
+      
+
+    // console.log(everything)
+    setTimeout(() => {
+      // console.log(everything)
+      resolve(everything);
+    }, maxtime);
+      
+    });
+    
+  
+  return anotherPromise
+}
