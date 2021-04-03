@@ -18,6 +18,15 @@ const baseURL = "http://localhost:3000";
  *
  * Note: test this function with an URL from your json-server API
  */
+const getComments = () =>{
+
+ return fetch(baseURL+'/comments').then((response)=> response.json());
+  // .then((results)=>console.log(results));
+
+
+}
+// getComments(baseURL+"/comments");
+
 
 /**
  * Exercise 2
@@ -30,7 +39,18 @@ const baseURL = "http://localhost:3000";
  *
  * Don't forget to handle errors.
  */
-
+const postComment = (newComment) =>{
+  const postIt ={
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(newComment),
+  }
+  
+  return fetch(baseURL+'/comments',postIt).then((response)=> response.json()).catch((error)=> console.error(`Oops something went wrong!`));
+}
 /**
  * Exercise 3
  *
@@ -45,6 +65,36 @@ const baseURL = "http://localhost:3000";
  *
  * Don't forget to handle errors.
  */
+// const patchComment = (comment,newCommentBody) =>{
+//   const patchIt = {
+//     method: "PATCH",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Accept: "application/json",
+//     },
+//     body: JSON.stringify(newCommentBody),
+//   }
+//   return fetch(baseURL+'/comments',patchIt).then((response)=> response.json()).catch((error)=> console.error(`Oops we couldn't update that!`));
+// }
+
+
+const patchComment = async(comment,newCommentBody) =>{
+  const patchIt = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({body: newCommentBody}),
+  }
+  const results = await fetch(baseURL+'/comments/'+comment.id,patchIt).then((response)=> response.json()).catch((error)=> console.error(`Oops we couldn't update that!`));
+  return results
+}
+
+
+
+
+
 
 /**
  * Exercise 4
