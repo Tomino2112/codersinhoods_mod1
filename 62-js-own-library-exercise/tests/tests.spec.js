@@ -1,4 +1,4 @@
-const theBestJsLibrary = require("../theBestJsLibrary");
+const theBestJsLibrary = require("../index.js");
 const {
   createATag,
   createATagWithChildren,
