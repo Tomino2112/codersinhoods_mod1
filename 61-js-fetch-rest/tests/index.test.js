@@ -24,9 +24,9 @@ const baseURL = "http://localhost:3000";
  *
  * Note: test this function with an URL from your json-server API
  */
-const getComments = () =>{
+const getComments = async() =>{
 
- return fetch(baseURL+'/comments').then((response)=> response.json());
+ return await fetch(baseURL+'/comments').then((response)=> response.json());
   // .then((results)=>console.log(results));
 
 
@@ -45,7 +45,7 @@ const getComments = () =>{
  *
  * Don't forget to handle errors.
  */
-const postComment = (newComment) =>{
+const postComment = async(newComment) =>{
   const postIt ={
     method: "POST",
     headers: {
@@ -55,7 +55,7 @@ const postComment = (newComment) =>{
     body: JSON.stringify(newComment),
   }
   
-  return fetch(baseURL+'/comments',postIt).then((response)=> response.json()).catch((error)=> console.error(`Oops something went wrong!`));
+  return await fetch(baseURL+'/comments',postIt).then((response)=> response.json()).catch((error)=> console.error(`Oops something went wrong!`));
 }
 /**
  * Exercise 3
@@ -93,8 +93,19 @@ const patchComment = async(comment,newCommentBody) =>{
     },
     body: JSON.stringify({body: newCommentBody}),
   }
-  const results = await fetch(baseURL+'/comments/'+comment.id,patchIt).then((response)=> response.json()).catch((error)=> console.error(`Oops we couldn't update that!`));
-  return results
+  const results = await fetch(baseURL+'/comments/'+comment.id,patchIt)
+  .then((response)=> {
+    if(!response.ok){
+      return  `Oops we couldn't update that!`;
+    } else {
+      return response.json();
+    }
+    
+  });
+
+  
+  console.log(results)
+  return results;
 }
 
 
@@ -113,7 +124,29 @@ const patchComment = async(comment,newCommentBody) =>{
  *
  * Don't forget to handle errors.
  */
+const putComment = async(comment) =>{
+  const putIt = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(comment),
+  }
+  const results = await fetch(baseURL+'/comments/'+comment.id,putIt)
+  .then((response)=> {
+    if(!response.ok){
+      return  `Oops we couldn't update that!`;
+    } else {
+      return response.json();
+    }
+    
+  });
 
+  
+  console.log(results)
+  return results;
+}
 /**
  * Exercise 5
  *
@@ -124,7 +157,24 @@ const patchComment = async(comment,newCommentBody) =>{
  *
  * Don't forget to handle errors.
  */
+ const deleteComment = async(comment) =>{
+  const deleteIt = {
+    method: "DELETE"
+  }
+  const results = await fetch(baseURL+'/comments/'+comment.id,deleteIt)
+  .then((response)=> {
+    if(!response.ok){
+      return  `That could not be deleted!`;
+    } else {
+      return `Deleted!`;
+    }
+    
+  });
 
+  
+  console.log(results)
+  return results;
+}
 describe("HTTP requests", () => {
   // Exercise 1
   test("getComments should resolve with an array of comments", async () => {
