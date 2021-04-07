@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,700;1,400&display=swap");
+* {
+  font-family: "Nunito sans", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.gameDiv {
+  position: relative;
+}
+
+.gameDiv .pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gameDiv .pick .buttons button {
+  background-color: #fcacac;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 2rem;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.gameDiv .questions {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameDiv .questions .values {
+  margin: 1rem;
+}
+
+.gameDiv .questions input {
+  border-radius: 5px;
+  font-size: 1.5rem;
+  padding: 2rem;
+  width: 3rem;
+}
+
+.gameDiv .questions .submit {
+  display: flex;
+  flex-direction: column;
+}
+
+.gameDiv .questions .submit button {
+  background-color: #3eb045;
+  color: #fff;
+  padding: .5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  border: 0;
+  border-radius: 5px;
+}
+
+.popup {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 45vw;
+  height: 45vh;
+  border-radius: 10px;
+}
+
+.popup .reset {
+  position: relative;
+  background-color: #00d9ff;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: .5rem;
+  margin-top: 4rem;
+  border: none;
+  border-radius: 5px;
+  width: 45%;
+}
+
+.hidden {
+  visibility: hidden;
+  position: absolute;
+}
+/*# sourceMappingURL=style.css.map */

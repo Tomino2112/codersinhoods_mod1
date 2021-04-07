@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/dist/style.css">
+  <title>Math Game</title>
+</head>
+<body>
+  <h1>Math Game</h1>
+  <div class="gameDiv">
+    <div class="pick">
+      Please pick how many Questions:
+      <div class="buttons">
+        <button value="10">10</button>
+        <button value="15">15</button>
+        <button value="20">20</button>
+      </div>
+    </div>
+    <div class="questions hidden">
+      <div class="values">1+2</div>
+<form class="submit" action="submit">
+  <input type="float"/>
+  <button type="submit">Submit</button>
+</form>
+      
+    </div>
+    
+  </div>
+  <div class="popup hidden">
+    <span class="popuptext" id="myPopup"></span>
+    <button class='reset hidden' type="submit" >Restart</button>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
