@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/dist/style.css">
+  <title>Text Limiter</title>
+</head>
+<body>
+  <h1>Text Limit</h1>
+  <div class="textLimit">
+    <form class="howMuch"action="submit">
+      <p>Please enter your Character limit for the textArea below:</p>
+      <input type="number"/>
+      <button>Submit</button>
+    </form>
+  </div>
+  <div class="limitedArea hidden">
+    <form class="textArea" action="submit">
+      <textarea maxlength="0"></textarea>
+    </form>
+    <button class="howMany">How Many</button>
+    <p class="written hidden">0</p>
+    <p class="remaining">0</p>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
