@@ -22,7 +22,7 @@ const randomHole = (holes) => {
 }
 
 const init = () =>{
-  scoreTally =0;
+  // scoreTally =0;
   holes.forEach(hole =>{
 
     const demo = setInterval(() => {
@@ -34,6 +34,7 @@ const init = () =>{
       hole.classList.remove('up');
     })
   })
+
  
 }
 const peep = () => {
@@ -50,26 +51,32 @@ const peep = () => {
 }
 const startGame = () =>{
   score.innerText = 0;
+  scoreTally = 0;
   timeUp = false;
   peep();
   
-  moles.forEach(mole =>{
-    mole.addEventListener('click',()=>{
-      mole.parentElement.classList.remove('up');
-      scoreTally++;
-      score.innerText = scoreTally;
-      console.log(scoreTally);
-    })
-  })
-  setTimeout(() => {timeUp = true;init();},10000)
+ 
+    setTimeout(() => {
+    timeUp = true;
+    init();
+    console.log(scoreTally);
+  },10000)
 }
 
-start.addEventListener('click',()=> {
-  scoreTally = 0;
-  startGame();
+moles.forEach(mole =>{
   
+  mole.addEventListener('click',(event)=>{
+     mole.parentElement.classList.remove('up');
+     scoreTally++;
+     score.innerText = scoreTally;
+     console.log(scoreTally);
+   })
+ })
+
+start.addEventListener('click',()=> {
+  
+  startGame();
 })
 
 
-// document.addEventListener('click',(event)=>{console.log(event);})
 init();
